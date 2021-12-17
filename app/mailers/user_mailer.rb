@@ -5,9 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome
-    params[:user]
+  def welcome(welcome)
+    @user = welcome
 
-    mail to: params[:user].email
+    mail to: @user.email, subject: "created new user"
   end
 end

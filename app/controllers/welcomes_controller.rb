@@ -25,7 +25,7 @@ class WelcomesController < ApplicationController
 
     respond_to do |format|
       if @welcome.save
-        UserMailer.with(user: @welcome).welcome.deliver_later
+        UserMailer.welcome(@welcome).deliver_later
         format.html { redirect_to @welcome, notice: "Welcome was successfully created." }
         format.json { render :show, status: :created, location: @welcome }
       else
